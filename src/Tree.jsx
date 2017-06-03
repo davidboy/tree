@@ -84,6 +84,7 @@ class Tree extends React.Component {
     if (nextState.dragNodesKeys !== this.state.dragNodesKeys) return true;
     if (nextState.dragOverNodeKey !== this.state.dragOverNodeKey) return true;
     if (nextState.dropNodeKey !== this.state.dropNodeKey) return true;
+    if (nextProps.children.length !== this.props.children.length) return true;
     return false;
   }
 
