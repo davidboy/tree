@@ -56,7 +56,6 @@ class Tree extends React.Component {
     const st = {};
     if (expandedKeys) {
       st.expandedKeys = expandedKeys;
-      this.setState(st);
     }
     if (checkedKeys) {
       if (nextProps.checkedKeys !== this.props.checkedKeys) {
@@ -74,8 +73,8 @@ class Tree extends React.Component {
     }
     if (selectedKeys) {
       st.selectedKeys = selectedKeys;
-      this.setState(st);
     }
+    this.setState(st);
   }
 
   onDragStart(e, treeNode) {

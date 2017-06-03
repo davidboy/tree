@@ -16,10 +16,6 @@ const Demo = React.createClass({
   getInitialState() {
     return {
       gData: [],
-      expandedKeys: [],
-      checkedKeys: [],
-      checkedKeys1: [],
-      selectedKeys: [],
     };
   },
   componentWillUpdate(nextProps, nextState) {
@@ -32,31 +28,9 @@ const Demo = React.createClass({
       this.notReRender = false;
     }
   },
-  onCheck(checkedKeys) {
-    this.setState({
-      checkedKeys,
-    });
-  },
-  onCheckStrictly(checkedKeys1, /* extra*/) {
-    console.log(arguments);
-    this.setState({
-      checkedKeys1,
-    });
-  },
-  onSelect(selectedKeys, info) {
-    console.log('onSelect', selectedKeys, info);
-    this.setState({
-      selectedKeys,
-    });
-  },
   onGen(data) {
     this.setState({
       gData: data,
-      expandedKeys: ['0-0-0-key'],
-      // checkedKeys: ['0-0-0-0-key', '0-0-1-0-key', '0-1-0-0-key'],
-      checkedKeys: ['0-0-0-key'],
-      checkedKeys1: ['0-0-0-key'],
-      selectedKeys: [],
     });
   },
   render() {
@@ -92,9 +66,6 @@ const Demo = React.createClass({
           <h3>normal check</h3>
           <Tree
             checkable multiple={this.props.multiple}
-            defaultExpandedKeys={this.state.expandedKeys}
-            onCheck={this.onCheck} checkedKeys={this.state.checkedKeys}
-            onSelect={this.onSelect} selectedKeys={this.state.selectedKeys}
           >
             {treeNodes}
           </Tree>
@@ -103,9 +74,6 @@ const Demo = React.createClass({
           <h3>checkStrictly</h3>
           <Tree
             checkable checkStrictly multiple={this.props.multiple}
-            defaultExpandedKeys={this.state.expandedKeys}
-            onCheck={this.onCheckStrictly} checkedKeys={this.state.checkedKeys1}
-            onSelect={this.onSelect} selectedKeys={this.state.selectedKeys}
           >
             {treeNodes}
           </Tree>
